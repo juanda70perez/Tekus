@@ -1,0 +1,31 @@
+﻿@model Tekus.Entities.Supplier
+@{
+    ViewData["Title"] = "Crear proveedor";
+}
+
+<h2>Crear proveedor</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Identification" class="control-label">Nombre</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Nombre</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EmailAddress" class="control-label">Correo electrónico</label>
+        <input asp-for="EmailAddress" class="form-control" />
+        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+    </div>    
+    <br />
+    <button type="submit" class="btn btn-primary">Crear</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts{
+    
+}

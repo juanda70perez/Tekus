@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Proveedores";
+}
+
+<div class="text-center">
+    <a class="btn btn-primary mb-3" asp-controller="Suppliers" asp-action="Create">Agregar Proveedor</a>
+    <table id="suppliers" class="display">  
+        <thead>
+            <tr>
+                <th>NIT</th>
+                <th>Nombre</th>
+                <th>Correo electrónico</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            let table = $('#suppliers').DataTable({
+                ajax: {
+                    url: '/api/suppliers',
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'identification' },
+                    { data: 'name' },
+                    { data: 'emailAddress' },
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true
+            });
+
+            table.on('click', 'tbody tr', function () {
+                let data = table.row(this).data();
+                location.href = "Suppliers/Edit/" + data.supplierID;
+            });
+        });
+    </script>
+}
